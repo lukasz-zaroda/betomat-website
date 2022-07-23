@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Betomat</title>
+</head>
+<body class="d-flex flex-column">
+
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="helpModalLabel">Informacje</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+      </div>
+      <div class="modal-body">
+          <div class="card mb-2">
+            <div class="card-body">
+                Projekt Betomat składa się z następujących komponentów
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body">
+              <h5 class="card-title">Strona Betomat <span class="badge bg-primary"><%= htmlWebpackPlugin.options.version %></span></h5>
+              <a href="<%= htmlWebpackPlugin.options.repositoryUrl %>" class="card-link">Kod źródłowy</a>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body">
+              <h5 class="card-title">Betomat CKEditor 5 Plugin <span class="badge bg-primary"><%= htmlWebpackPlugin.options.versionPlugin %></span></h5>
+              <a href="<%= htmlWebpackPlugin.options.repositoryPluginUrl %>" class="card-link">Kod źródłowy</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar bg-light">
+    <div class="container-fluid w-100">
+        <span class="navbar-brand mb-0 h1">Betomat
+            <span class="badge bg-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="Build: <%= htmlWebpackPlugin.options.build %><br/><%= htmlWebpackPlugin.options.buildTime %>"><%= htmlWebpackPlugin.options.version %></span>
+        </span>
+        <span class="help-button" data-bs-toggle="modal" data-bs-target="#helpModal"></span>
+    </div>
+</nav>
+
+<div class="container flex-grow-1 d-flex flex-column">
+    <div class="mt-3 mb-3 flex-grow-1 d-flex flex-column">
+        <div class="document-editor">
+            <div class="document-editor__toolbar"></div>
+            <div class="document-editor__editable-container">
+                <div class="document-editor__editable"></div>
+            </div>
+            <div class="document-editor__word-counter"><span data-word-count></span> / <span data-character-count></span></div>
+        </div>
+    </div>
+</div>
+<nav class="navbar bg-light w-100">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 d-flex align-items-center justify-content-end w-100"><a
+                class="github-link" href="<%= htmlWebpackPlugin.options.repositoryUrl %>"></a></span>
+    </div>
+</nav>
+</body>
+</html>

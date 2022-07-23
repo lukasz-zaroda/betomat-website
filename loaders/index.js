@@ -1,0 +1,1 @@
+export { default } from './betomat-dictionary-words-loader';

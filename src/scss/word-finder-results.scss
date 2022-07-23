@@ -1,0 +1,36 @@
+%word-finder-result-base {
+  border-radius: 3px;
+  padding: 0 4px 2px;
+}
+
+.word-finder-result {
+  &--shadow {
+    @extend %word-finder-result-base;
+    background-color: lightgray;
+  }
+
+  &--zaimki-osobowe {
+    @extend %word-finder-result-base;
+    background-color: #d0bf4d;
+  }
+
+  &--zaimki-dzierzawcze {
+    @extend %word-finder-result-base;
+    background-color: #b8ee98;
+  }
+
+  &--zaimki-nieokreslone {
+    @extend %word-finder-result-base;
+    background-color: #69cebd;
+  }
+
+  &--zaimki-przeczace {
+    @extend %word-finder-result-base;
+    background-color: #ec9898;
+  }
+
+  &--zaimki-pytajace {
+    @extend %word-finder-result-base;
+    background-color: #bf93dc;
+  }
+}
