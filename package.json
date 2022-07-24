@@ -23,7 +23,7 @@
     "@ckeditor/ckeditor5-utils": "^34.2.0",
     "@ckeditor/ckeditor5-word-count": "^34.2.0",
     "@popperjs/core": "^2.11.5",
-    "betomat-plugin-ckeditor5": "^0.1.0",
+    "betomat-plugin-ckeditor5": "^0.2.0",
     "bootstrap": "^5.2.0-beta1",
     "bootstrap-icons": "^1.9.1",
     "jquery": "^3.6.0",

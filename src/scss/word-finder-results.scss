@@ -1,46 +1,44 @@
+$results-colors: (
+  'shadow': #D3D3D3,
+  'zaimki-osobowe': #ecdd9c,
+  'zaimki-dzierzawcze': #b8ee98,
+  'zaimki-nieokreslone': #a3efe0,
+  'zaimki-przeczace': #f6baba,
+  'zaimki-pytajne': #d9c0f1,
+  'siekoza': #f6d3b6,
+  'byloza': #becff6,
+);
+
 %word-finder-result-base {
   border-radius: 3px;
   padding: 0 4px 2px;
 }
 
+@mixin generate-results() {
+  @each $type, $color in $results-colors {
+    &--#{$type} {
+      @extend %word-finder-result-base;
+      background-color: $color;
+    }
+  }
+}
+
+@mixin generate-switcher-colors() {
+  @each $type, $color in $results-colors {
+    &--#{$type} {
+      .ck-button__toggle {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+// Create backbrounds for results.
 .word-finder-result {
-  &--shadow {
-    @extend %word-finder-result-base;
-    background-color: lightgray;
-  }
+  @include generate-results;
+}
 
-  &--zaimki-osobowe {
-    @extend %word-finder-result-base;
-    background-color: #d0bf4d;
-  }
-
-  &--zaimki-dzierzawcze {
-    @extend %word-finder-result-base;
-    background-color: #b8ee98;
-  }
-
-  &--zaimki-nieokreslone {
-    @extend %word-finder-result-base;
-    background-color: #69cebd;
-  }
-
-  &--zaimki-przeczace {
-    @extend %word-finder-result-base;
-    background-color: #ec9898;
-  }
-
-  &--zaimki-pytajne {
-    @extend %word-finder-result-base;
-    background-color: #bf93dc;
-  }
-
-  &--siekoza {
-    @extend %word-finder-result-base;
-    background-color: #b1bdad;
-  }
-
-  &--byloza {
-    @extend %word-finder-result-base;
-    background-color: #9db6ef;
-  }
+// Create backgrounds for buttons.
+.ck-betomat-form .ck-on.ck-button.ck-switchbutton.ck-betomat-form__word-group {
+  @include generate-switcher-colors;
 }

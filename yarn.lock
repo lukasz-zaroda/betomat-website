@@ -828,10 +828,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
-betomat-plugin-ckeditor5@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/betomat-plugin-ckeditor5/-/betomat-plugin-ckeditor5-0.1.0.tgz#cc50859da2743cc1dfb948ce49fed39d09af7338"
-  integrity sha512-uFw/au15RiZJEfNWWAvt3vT4ghoPpmlE9h9BnFbKIrotfcJxcBGKrOY7cei9mq5F+/q/1C9vwK/W+aEsN0u0fA==
+betomat-plugin-ckeditor5@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/betomat-plugin-ckeditor5/-/betomat-plugin-ckeditor5-0.2.0.tgz#4191a8855e3597653024f7aba2f8c9137a129475"
+  integrity sha512-uFsba+myA+oiEw1efj3amziG1kEXWktuZEPpx+ivTM5DwWOinZNXBIxJt5XDb9IAGa/uL+WBCPPPHHMqg1OgcQ==
   dependencies:
     lodash-es "^4.17.21"
     schema-utils "^4.0.0"
