@@ -18,7 +18,7 @@ import zaimkiDzierzawcze from './words/pl/zaimki/dzierzawcze.words';
 import zaimkiNieokreslone from './words/pl/zaimki/nieokreslone.words';
 import zaimkiOsobowe from './words/pl/zaimki/osobowe.words';
 import zaimkiPrzeczace from './words/pl/zaimki/przeczace.words';
-import zaimkiPytajace from './words/pl/zaimki/pytajace.words';
+import zaimkiPytajne from './words/pl/zaimki/pytajne.words';
 
 const CKEditorInspector = IS_DEV_MODE ? require('@ckeditor/ckeditor5-inspector') : null;
 
@@ -51,9 +51,9 @@ jQuery(document).ready(function () {
             words: zaimkiPrzeczace,
           },
           {
-            type: 'zaimki-pytajace',
-            label: 'Zaimki pytające',
-            words: zaimkiPytajace,
+            type: 'zaimki-pytajne',
+            label: 'Zaimki pytajne',
+            words: zaimkiPytajne,
           },
         ],
       }
