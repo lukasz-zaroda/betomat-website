@@ -33,4 +33,14 @@
     @extend %word-finder-result-base;
     background-color: #bf93dc;
   }
+
+  &--siekoza {
+    @extend %word-finder-result-base;
+    background-color: #b1bdad;
+  }
+
+  &--byloza {
+    @extend %word-finder-result-base;
+    background-color: #9db6ef;
+  }
 }

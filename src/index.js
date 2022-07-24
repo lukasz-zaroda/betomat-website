@@ -19,6 +19,8 @@ import zaimkiNieokreslone from './words/pl/zaimki/nieokreslone.words';
 import zaimkiOsobowe from './words/pl/zaimki/osobowe.words';
 import zaimkiPrzeczace from './words/pl/zaimki/przeczace.words';
 import zaimkiPytajne from './words/pl/zaimki/pytajne.words';
+import siekoza from './words/pl/zaimki/siekoza.words';
+import byloza from './words/pl/zaimki/byloza.words';
 
 const CKEditorInspector = IS_DEV_MODE ? require('@ckeditor/ckeditor5-inspector') : null;
 
@@ -55,6 +57,16 @@ jQuery(document).ready(function () {
             label: 'Zaimki pytajne',
             words: zaimkiPytajne,
           },
+          {
+            type: 'siekoza',
+            label: 'Siękoza',
+            words: siekoza,
+          },
+          {
+            type: 'byloza',
+            label: 'Byłoza',
+            words: byloza,
+          }
         ],
       }
     })
