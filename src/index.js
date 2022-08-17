@@ -21,6 +21,7 @@ import zaimkiPrzeczace from './words/pl/zaimki/przeczace.words';
 import zaimkiPytajne from './words/pl/zaimki/pytajne.words';
 import siekoza from './words/pl/zaimki/siekoza.words';
 import byloza from './words/pl/zaimki/byloza.words';
+import miecioza from './words/pl/miec.words';
 
 const CKEditorInspector = IS_DEV_MODE ? require('@ckeditor/ckeditor5-inspector') : null;
 
@@ -66,7 +67,12 @@ jQuery(document).ready(function () {
             type: 'byloza',
             label: 'Byłoza',
             words: byloza,
-          }
+          },
+          {
+            type: 'miecioza',
+            label: 'Mieć (Miecioza?)',
+            words: miecioza,
+          },
         ],
       }
     })
