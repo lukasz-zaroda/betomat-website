@@ -17,19 +17,36 @@
       <div class="modal-body">
           <div class="card mb-2">
             <div class="card-body">
-                Projekt Betomat składa się z następujących komponentów
+                <div class="mb-4">
+                    Projekt Betomat składa się z następujących komponentów:
+                </div>
+                <div class="mb-4">
+                    <h5 class="card-title">Strona Betomat <span class="badge bg-primary"><%= htmlWebpackPlugin.options.version %></span></h5>
+                    <a href="<%= htmlWebpackPlugin.options.repositoryUrl %>" class="card-link">Kod źródłowy</a>
+                </div>
+                <div>
+                    <h5 class="card-title">Betomat CKEditor 5 Plugin <span class="badge bg-primary"><%= htmlWebpackPlugin.options.versionPlugin %></span></h5>
+                    <a href="<%= htmlWebpackPlugin.options.repositoryPluginUrl %>" class="card-link">Kod źródłowy</a>
+                </div>
             </div>
           </div>
           <div class="card mb-2">
             <div class="card-body">
-              <h5 class="card-title">Strona Betomat <span class="badge bg-primary"><%= htmlWebpackPlugin.options.version %></span></h5>
-              <a href="<%= htmlWebpackPlugin.options.repositoryUrl %>" class="card-link">Kod źródłowy</a>
+                Wszelkie sugestie i błędy proszę zgłaszać <a href="https://github.com/lukasz-zaroda/betomat-website/issues">na listę zgłoszeń projektu w serwisie GitHub</a>,
+                lub <a href="https://www.fantastyka.pl/hydepark/pokaz/28903">w odpowiednim wątku na portalu fantastyka.pl</a>.
             </div>
           </div>
           <div class="card mb-2">
             <div class="card-body">
-              <h5 class="card-title">Betomat CKEditor 5 Plugin <span class="badge bg-primary"><%= htmlWebpackPlugin.options.versionPlugin %></span></h5>
-              <a href="<%= htmlWebpackPlugin.options.repositoryPluginUrl %>" class="card-link">Kod źródłowy</a>
+                Betomat działa wyłącznie w przeglądarce użytkownika i nie zbiera żadnych danych poza anonimowymi
+                statystykami ruchu. W tym celu używa pomocy firmy <a href="https://plausible.io">Plausible Analytics</a>,
+                która jest zarejestrowana na terytorium Unii Europejskiej i do zbierania danych deklaruje używanie
+                otwartego oprogramowania.
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body">
+                Autor: Łukasz Zaroda
             </div>
           </div>
       </div>
