@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const {styles} = require('@ckeditor/ckeditor5-dev-utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const marked = require('marked');
 const pkg = require('./package.json');
 
 function getPackageVersion(packageName) {
@@ -26,6 +27,11 @@ function getPackageVersion(packageName) {
   }
 
   return null;
+}
+
+function getChangelog() {
+  const changelog = fs.readFileSync("CHANGELOG.md", { encoding: "utf-8" });
+  return marked.parse(changelog);
 }
 
 const isDevMode = process.env.NODE_ENV !== 'production';
@@ -138,16 +144,10 @@ module.exports = {
       },
       {
         test: /\.(eot|woff2?|ttf)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '/fonts/[name].[ext]',
-              esModule: false,
-            },
-          }
-        ],
-        type: 'javascript/auto',
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext][query]'
+        }
       },
       {
         test: /\.txt$/,
@@ -199,6 +199,7 @@ module.exports = {
         timeZone: 'Europe/Warsaw',
       }).format(),
       build: process.env.NETLIFY ? process.env.BUILD_ID : 'unknown',
+      changelog: getChangelog(),
     }),
   ],
 };

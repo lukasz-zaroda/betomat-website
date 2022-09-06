@@ -1,6 +1,7 @@
 @import "~bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.scss";
 @import '~betomat-plugin-ckeditor5/build/betomat.css';
-@import "./word-finder-results.scss";
+@import "./betomat-results.scss";
 @import "./editor.scss";
 
 body {
@@ -16,15 +17,24 @@ body {
 }
 
 .help-button {
-  background-color: $blue-200;
+  @extend .bi, .bi-info-circle-fill;
+  font-size: 30px;
+  color: $blue-200;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
-  mask-image: url("~bootstrap-icons/icons/info-circle-fill.svg");
-  mask-size: cover;
-  transition: background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
   &:hover {
-    background-color: $blue-400;
+    color: $blue-400;
+  }
+}
+
+.config-button {
+  @extend .bi, .bi-tools;
+  font-size: 28px;
+  cursor: pointer;
+  color: $gray-500;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: $gray-800;
   }
 }
 

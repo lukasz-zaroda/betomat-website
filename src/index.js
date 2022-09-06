@@ -1,5 +1,7 @@
 import jQuery from 'jquery';
-import 'bootstrap';
+import lodash from "lodash-es";
+import { Popover, Tooltip } from 'bootstrap';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import DecoupledEditor from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
 import '@ckeditor/ckeditor5-build-decoupled-document/build/translations/pl';
@@ -25,7 +27,79 @@ import miecioza from './words/pl/miec.words';
 
 const CKEditorInspector = IS_DEV_MODE ? require('@ckeditor/ckeditor5-inspector') : null;
 
+function getEditorBackupData() {
+  return localStorage.getItem('editorDataBackup')
+}
+
+function setEditorBackupData(data) {
+  return localStorage.setItem('editorDataBackup', data)
+}
+
 jQuery(document).ready(function () {
+
+  /*
+   * Initialize Bootstrap's popovers.
+   */
+  const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+  const popovers = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new Popover(popoverTriggerEl, {
+      sanitize: false,
+    });
+  });
+
+  for (let popover of popovers) {
+    $(popover._element).on('mouseenter', function () {
+      popover.show();
+    })
+
+    $('body').on('click', function () {
+      for (let popover of popovers) {
+        popover.hide();
+      }
+    })
+  }
+
+  /*
+   * Initialize tooltips.
+   */
+
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new Tooltip(tooltipTriggerEl)
+  });
+
+  /*
+   * Handle settings.
+   */
+
+  const settingUpdateEventName = 'bw:setting:update';
+
+  function getSetting(name) {
+    return JSON.parse(localStorage.getItem('bwSetting:' + name)) ?? null;
+  }
+
+  function setSettingAutosave(name, value) {
+    localStorage.setItem('bwSetting:' + name, JSON.stringify(value));
+    $(document).trigger(settingUpdateEventName, [name, value]);
+  }
+
+  const autosaveSettingName = 'autosave';
+
+  const $autosaveSetting = $('#settingAutosave');
+
+  const autosaveSettingValue = getSetting(autosaveSettingName);
+  console.log(autosaveSettingValue);
+  $autosaveSetting.prop('checked', autosaveSettingValue);
+
+  $autosaveSetting.on('change', function() {
+    const $input = $(this);
+    setSettingAutosave(autosaveSettingName, $input.is(':checked'))
+  });
+
+  // Set backed up data.
+  const editableElement = document.getElementById('editor-editable');
+  editableElement.innerHTML = getEditorBackupData();
+
   DecoupledEditor
     .create(document.querySelector('.document-editor__editable'), {
       plugins: [Essentials, Paragraph, WordCount, Betomat, Bold, Italic, Underline, Strikethrough, Alignment],
@@ -87,6 +161,22 @@ jQuery(document).ready(function () {
         CKEditorInspector.attach(editor);
       }
 
+      // Autosave
+
+      const autosaveCallback = lodash.throttle((evt) => {setTimeout(() => {setEditorBackupData(editor.getData())}, 10000)}, 10000);
+      if (getSetting(autosaveSettingName)) {
+        editor.model.document.on('change:data', autosaveCallback);
+      }
+      $(document).on(settingUpdateEventName, function (e, name, value) {
+        if (name === autosaveSettingName) {
+          if (value) {
+            editor.model.document.on('change:data', autosaveCallback);
+          } else {
+            editor.model.document.off('change:data', autosaveCallback);
+          }
+        }
+      });
+
       /*
        * Statistics
        */
@@ -105,22 +195,9 @@ jQuery(document).ready(function () {
           $(item).html(newValue);
         });
       });
-
-
     })
     .catch(error => {
       console.error(error.stack);
     });
-
-  // Enable bootstrap's tooltips.
-  $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip({
-      container: 'body',
-    })
-  })
-
-  setTimeout(function () {
-      $('body').addClass('helpers-hidden');
-  },3000);
 
 });

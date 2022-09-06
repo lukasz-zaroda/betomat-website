@@ -8,58 +8,118 @@
 <body class="d-flex flex-column">
 
 <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="helpModalLabel">Informacje</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
-      </div>
-      <div class="modal-body">
-          <div class="card mb-2">
-            <div class="card-body">
-                <div class="mb-4">
-                    Projekt Betomat składa się z następujących komponentów:
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="helpModalLabel">Informacje</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            Projekt Betomat składa się z następujących komponentów:
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title">Strona Betomat <span class="badge bg-primary"><%= htmlWebpackPlugin.options.version %></span>
+                            </h5>
+                            <a href="<%= htmlWebpackPlugin.options.repositoryUrl %>" class="card-link">Kod źródłowy</a>
+                        </div>
+                        <div>
+                            <h5 class="card-title">Betomat CKEditor 5 Plugin <span class="badge bg-primary"><%= htmlWebpackPlugin.options.versionPlugin %></span>
+                            </h5>
+                            <a href="<%= htmlWebpackPlugin.options.repositoryPluginUrl %>" class="card-link">Kod
+                                źródłowy</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <h5 class="card-title">Strona Betomat <span class="badge bg-primary"><%= htmlWebpackPlugin.options.version %></span></h5>
-                    <a href="<%= htmlWebpackPlugin.options.repositoryUrl %>" class="card-link">Kod źródłowy</a>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        Wszelkie sugestie i błędy proszę zgłaszać <a
+                        href="https://github.com/lukasz-zaroda/betomat-website/issues">na listę zgłoszeń projektu w
+                        serwisie GitHub</a>,
+                        lub <a href="https://www.fantastyka.pl/hydepark/pokaz/28903">w odpowiednim wątku na portalu
+                        fantastyka.pl</a>.
+                    </div>
                 </div>
-                <div>
-                    <h5 class="card-title">Betomat CKEditor 5 Plugin <span class="badge bg-primary"><%= htmlWebpackPlugin.options.versionPlugin %></span></h5>
-                    <a href="<%= htmlWebpackPlugin.options.repositoryPluginUrl %>" class="card-link">Kod źródłowy</a>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        Betomat działa wyłącznie w przeglądarce użytkownika i nie zbiera żadnych danych poza anonimowymi
+                        statystykami ruchu. W tym celu używa pomocy firmy <a href="https://plausible.io">Plausible
+                        Analytics</a>,
+                        która jest zarejestrowana na terytorium Unii Europejskiej i do zbierania danych deklaruje
+                        używanie
+                        otwartego oprogramowania.
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        Autor: Łukasz Zaroda
+                    </div>
                 </div>
             </div>
-          </div>
-          <div class="card mb-2">
-            <div class="card-body">
-                Wszelkie sugestie i błędy proszę zgłaszać <a href="https://github.com/lukasz-zaroda/betomat-website/issues">na listę zgłoszeń projektu w serwisie GitHub</a>,
-                lub <a href="https://www.fantastyka.pl/hydepark/pokaz/28903">w odpowiednim wątku na portalu fantastyka.pl</a>.
-            </div>
-          </div>
-          <div class="card mb-2">
-            <div class="card-body">
-                Betomat działa wyłącznie w przeglądarce użytkownika i nie zbiera żadnych danych poza anonimowymi
-                statystykami ruchu. W tym celu używa pomocy firmy <a href="https://plausible.io">Plausible Analytics</a>,
-                która jest zarejestrowana na terytorium Unii Europejskiej i do zbierania danych deklaruje używanie
-                otwartego oprogramowania.
-            </div>
-          </div>
-          <div class="card mb-2">
-            <div class="card-body">
-                Autor: Łukasz Zaroda
-            </div>
-          </div>
-      </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<div class="modal fade" id="changelogModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changelogModalLabel">Lista zmian</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <%= htmlWebpackPlugin.options.changelog %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="configurationModal" tabindex="-1" aria-labelledby="configurationModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="configurationModalLabel">Ustawienia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="form-check form-switch pe-2" data-bs-toggle="tooltip" data-bs-placement="right" title="Autozapis będzie wykonywał się co 10 sekund">
+                              <input class="form-check-input" type="checkbox" role="switch" id="settingAutosave">
+                              <label class="form-check-label" for="settingAutosave"><strong>Autozapis</strong></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <nav class="navbar bg-light">
     <div class="container-fluid w-100">
         <span class="navbar-brand mb-0 h1">Betomat
-            <span class="badge bg-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="Build: <%= htmlWebpackPlugin.options.build %><br/><%= htmlWebpackPlugin.options.buildTime %>"><%= htmlWebpackPlugin.options.version %></span>
+            <span
+                role="button"
+                class="badge bg-primary"
+                data-bs-toggle="popover"
+                data-bs-placement="bottom"
+                data-bs-html="true"
+                data-bs-content="<%= htmlWebpackPlugin.options.build %><br/><%= htmlWebpackPlugin.options.buildTime %><br/><a class='text-decoration-none' href='#' data-bs-toggle='modal' data-bs-target='#changelogModal'>Lista zmian</a>"
+            ><%= htmlWebpackPlugin.options.version %></span>
         </span>
-        <span class="help-button" data-bs-toggle="modal" data-bs-target="#helpModal"></span>
+        <span class="d-flex align-items-center">
+            <span class="config-button me-3" data-bs-toggle="modal" data-bs-target="#configurationModal"></span>
+            <span class="help-button" data-bs-toggle="modal" data-bs-target="#helpModal"></span>
+        </span>
     </div>
 </nav>
 
@@ -68,16 +128,18 @@
         <div class="document-editor">
             <div class="document-editor__toolbar"></div>
             <div class="document-editor__editable-container">
-                <div class="document-editor__editable"></div>
+                <div id="editor-editable" class="document-editor__editable"></div>
             </div>
-            <div class="document-editor__word-counter"><span data-word-count></span> / <span data-character-count></span></div>
+            <div class="document-editor__word-counter"><span data-word-count></span> / <span
+                data-character-count></span></div>
         </div>
     </div>
 </div>
 <nav class="navbar bg-light w-100">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 d-flex align-items-center justify-content-end w-100"><a
-                class="github-link" href="<%= htmlWebpackPlugin.options.repositoryUrl %>"></a></span>
+        <span class="navbar-brand mb-0 h1 d-flex align-items-center justify-content-end w-100">
+            <a class="github-link" href="<%= htmlWebpackPlugin.options.repositoryUrl %>"></a>
+        </span>
     </div>
 </nav>
 </body>

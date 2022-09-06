@@ -1,5 +1,4 @@
 $results-colors: (
-  'shadow': #D3D3D3,
   'zaimki-osobowe': #ecdd9c,
   'zaimki-dzierzawcze': #b8ee98,
   'zaimki-nieokreslone': #a3efe0,
@@ -10,18 +9,12 @@ $results-colors: (
   'miecioza': #ffbc74,
 );
 
-%word-finder-result-base {
+$shadow-color: #D3D3D3;
+
+@mixin betomat-result-base($color) {
   border-radius: 3px;
   padding: 0 4px 2px;
-}
-
-@mixin generate-results() {
-  @each $type, $color in $results-colors {
-    &--#{$type} {
-      @extend %word-finder-result-base;
-      background-color: $color;
-    }
-  }
+  background-color: $color;
 }
 
 @mixin generate-switcher-colors() {
@@ -34,9 +27,17 @@ $results-colors: (
   }
 }
 
-// Create backbrounds for results.
-.word-finder-result {
-  @include generate-results;
+// Create backgrounds for results.
+.betomat-result {
+  .betomat\:highlight\:shadow & {
+    @include betomat-result-base($shadow-color);
+  }
+
+  @each $type, $color in $results-colors {
+    .betomat\:highlight\:word-group\:#{$type} &--#{$type} {
+      @include betomat-result-base($color);
+    }
+  }
 }
 
 // Create backgrounds for buttons.
