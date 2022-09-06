@@ -177,6 +177,11 @@ jQuery(document).ready(function () {
         }
       });
 
+      // Save on exiting the website.
+      $(window).on('beforeunload', function (e) {
+        setEditorBackupData(editor.getData());
+      });
+
       /*
        * Statistics
        */
