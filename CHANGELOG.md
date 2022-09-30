@@ -1,3 +1,6 @@
+### 0.4.2
+- Naprawienie błędu powodującego znikanie podświetleń po zaznaczeniu tekstu.
+
 ### 0.4.1
 - Dodanie zapisywania treści betomatu przy zamknięciu okna.
 

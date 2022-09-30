@@ -1,6 +1,6 @@
 {
   "name": "betomat-website",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "dev:build": "NODE_ENV=development ./node_modules/.bin/webpack --mode development --config ./webpack.config.js",
@@ -24,7 +24,7 @@
     "@ckeditor/ckeditor5-utils": "^34.2.0",
     "@ckeditor/ckeditor5-word-count": "^34.2.0",
     "@popperjs/core": "^2.11.5",
-    "betomat-plugin-ckeditor5": "0.3.0",
+    "betomat-plugin-ckeditor5": "0.3.1",
     "bootstrap": "^5.2.0-beta1",
     "bootstrap-icons": "^1.9.1",
     "jquery": "^3.6.0",
