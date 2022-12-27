@@ -1,3 +1,6 @@
+### 0.4.3
+- Dodanie brakujących zaimków osobowych w liczbie mnogiej.
+
 ### 0.4.2
 - Naprawienie błędu powodującego znikanie podświetleń po zaznaczeniu tekstu.
 
